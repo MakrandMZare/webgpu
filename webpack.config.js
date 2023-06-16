@@ -3,10 +3,10 @@ const bundleOutputDir = "./dist";
 
 module.exports = {
   entry: {
-    main: "./src/main.ts"
+    main: "./src/main"
   },
   output: {
-    filename: "[name].js",
+    filename: "[name].bundle.js",
     path: path.join(__dirname, bundleOutputDir),
     publicPath: 'public/dist/'
   },
@@ -17,10 +17,18 @@ module.exports = {
   module: {
     rules: [
       {
-        use: 'babel-loader',
-        test: /\.js|\.jsx$/,
-        exclude: /node_modules/,
+        test: /\.js$/,     
+        exclude: ['/node_modules/']
+      },
+      { test: /\.tsx?$/, loader: "ts-loader" },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(wgsl|glsl|vs|fs)$/,
+        loader: 'ts-shader-loader'
       }
     ]
-  },
-}
+  }
+};

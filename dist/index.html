@@ -8,12 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <h1>Create Triangle</h1><br>
-        <label>Color:</label>
-        <input type="text" id="id-color" value="(1.0,1.0,1.0,1.0)">
-        <button type="button" id="id-btn">Change Color</button>
-        <br><br>
-        <canvas id="my-canvas" width="640" height="480"></canvas>
-        <script defer src="main.js"></script>
+        <div>
+            <div class="grid">
+                <h1>Triangle with Vertex Color</h1><br>
+            </div>
+            <div class="item2">
+                <canvas id="canvas-webgpu"></canvas>
+            </div>
+        </div>
+        <script defer src="main.bundle.js"></script>
     </body>
     </html>
